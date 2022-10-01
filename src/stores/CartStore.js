@@ -6,7 +6,12 @@ export const useCartStore = defineStore("CartStore", {
       items: [],
     };
   },
-  // getters
+  getters: {
+    count: (state) => state.items.length,
+    isEmpty() {
+      return this.items.length === 0;
+    }
+  },
   actions: {
     addItems(event, product) {
       const count = parseInt(event);
