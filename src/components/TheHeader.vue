@@ -7,7 +7,9 @@ import { mapState } from "pinia";
 export default {
   components: { CartWidget },
   computed: {
-    ...mapState(useAuthStore, ["userName"]),
+    ...mapState(useAuthStore, {
+      user: "userName",
+    }),
   },
 };
 </script>
@@ -19,7 +21,7 @@ export default {
   >
     <h1 class="text-4xl text-gray-700 font-bold">The Pineapple Stand</h1>
     <div>
-      <span class="mr-5">{{ userName }}</span>
+      <span class="mr-5">{{ user }}</span>
       <CartWidget class="inline-block" />
     </div>
   </header>
