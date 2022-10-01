@@ -7,5 +7,10 @@ export const useCartStore = defineStore("CartStore", {
     };
   },
   // getters
-  // actions
+  actions: {
+    addItems(event, product) {
+      const count = parseInt(event);
+      for (let i = 0; i < count; i++) this.items.push(product);
+    },
+  },
 });
