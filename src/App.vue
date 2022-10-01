@@ -6,6 +6,13 @@ import { useCartStore } from "@/stores/CartStore";
 
 const productStore = useProductStore();
 const cartStore = useCartStore();
+cartStore.$onAction(({ name, store, args, after, onError}) => {
+  if (name === "addItems") {
+    after(() => {
+      console.log(`User added ${args[0]} "${args[1].name}"`);
+    });
+  }
+});
 productStore.fill();
 </script>
 
