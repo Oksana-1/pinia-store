@@ -4,9 +4,15 @@ import products from "@/data/products.json";
 export const useProductStore = defineStore("ProductStore", {
   state: () => {
     return {
-      products,
+      products: [],
     };
   },
   // getters
-  // actions
+  actions: {
+    fill() {
+      setTimeout(() => {
+        this.products = products;
+      }, 1000);
+    },
+  },
 });
